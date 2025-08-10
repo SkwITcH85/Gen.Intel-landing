@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Generational Intelligence</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --brand:#0a1128;   /* deep navy */
+      --accent:#2563eb;  /* blue-500 */
+      --bg:#ffffff;
+      --muted:#f3f4f6;
+      --text:#374151;    /* gray-700 */
+      --title:#0a1128;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+    img{max-width:100%;display:block}
+
+    /* Header */
+    header{background:var(--brand);padding:3.5rem 1rem;text-align:center}
+    header img{max-width:380px;width:80%;height:auto;margin:0 auto}
+
+    /* Mission */
+    #mission{max-width:1100px;margin:0 auto;padding:2.5rem 1rem;text-align:center}
+    #mission h1{font-size:2rem;line-height:1.2;margin:0 0 .75rem;font-weight:700;color:#111827}
+    #mission p{font-size:1.06rem;margin:.5rem auto 0;max-width:820px}
+    #mission .cta-note{font-weight:600;margin-top:1rem}
+
+    /* Sections */
+    main{max-width:1100px;margin:0 auto;padding:1rem 1rem 3.5rem}
+    .section{display:flex;flex-direction:column;gap:1.25rem;margin:0 auto 2.75rem;padding:1.25rem;border-radius:14px}
+    .section.strip{background:var(--muted)}
+    @media (min-width: 860px){
+      .section{flex-direction:row;align-items:center;padding:1.75rem 2rem}
+      .section.reverse{flex-direction:row-reverse}
+    }
+
+    .logo-wrap{flex:0 0 320px;display:flex;align-items:center;justify-content:center;padding:.5rem}
+    .logo-wrap img{max-width:280px;width:100%;height:auto}
+
+    .copy{flex:1}
+    .copy h2{color:var(--title);font-size:1.85rem;font-weight:700;margin:0 0 .6rem}
+    .copy p{margin:0 0 1.1rem;font-weight:300}
+    .cta{
+      display:inline-block;background:var(--accent);color:#fff;text-decoration:none;
+      padding:.9rem 1.6rem;border-radius:10px;font-weight:600;transition:transform .06s ease,background .15s ease;
+    }
+    .cta:hover{background:#1d4ed8}
+    .cta:active{transform:translateY(1px)}
+
+    /* Footer */
+    footer{background:var(--brand);color:#e5e7eb;text-align:center;padding:2rem 1rem}
+    footer a{color:#93c5fd;text-decoration:none}
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <img src="genai-logo.png" alt="Generational Intelligence logo">
+  </header>
+
+  <!-- MISSION -->
+  <section id="mission">
+    <h1>Our mission is to help every family capture, protect, and meaningfully use its lived wisdom.</h1>
+    <p>
+      Through <strong>Morb</strong> (the living family archive), <strong>MIA</strong> (a respectful AI companion),
+      and <strong>Harmony Well</strong> (personalised wellness), we connect past and present so that memories don’t
+      just sit in boxes—they show up when you need them: to spark conversations, guide decisions, and support mental health.
+    </p>
+    <p class="cta-note">Please take the surveys below and help us shape the future of family legacy.</p>
+  </section>
+
+  <main>
+    <!-- MORB -->
+    <section class="section">
+      <div class="logo-wrap"><img src="morb-logo.png" alt="Morb logo"></div>
+      <div class="copy">
+        <h2>Morb — The Living Family Archive</h2>
+        <p>Morb brings photos, videos, family-tree details, and even DNA insights into one secure, searchable home.
+          It auto-tags faces and moments, lets you send time-capsule messages to the future, and makes it easy to share
+          memories privately with the people who matter. You stay in control—what’s saved, what’s shared, and what’s
+          deleted is always your choice.</p>
+        <a class="cta" href="SURVEY_LINK_HERE" target="_blank" rel="noopener">Take the Morb Survey</a>
+      </div>
+    </section>
+
+    <!-- MIA -->
+    <section class="section strip reverse">
+      <div class="logo-wrap"><img src="mia-logo.png" alt="MIA logo"></div>
+      <div class="copy">
+        <h2>MIA — Your AI Memory Companion</h2>
+        <p>MIA (Memory Intelligent Assistant) helps families talk—and remember. With your permission, it nudges
+          thoughtful questions (“Ask Dad about his first job”), transcribes spoken stories, and turns casual chats into
+          keepsakes you can find later. MIA stays respectful and optional: you decide when it listens and what gets saved.</p>
+        <a class="cta" href="SURVEY_LINK_HERE" target="_blank" rel="noopener">Take the MIA Survey</a>
+      </div>
+    </section>
+
+    <!-- HARMONY WELL -->
+    <section class="section">
+      <div class="logo-wrap"><img src="harmony-logo.png" alt="Harmony Well logo"></div>
+      <div class="copy">
+        <h2>Harmony Well — Wellness Rooted in Heritage</h2>
+        <p>Harmony Well blends evidence-based tools—CBT chat, guided meditations, sleep stories—with the strength of
+          your family narrative. It surfaces supportive reflections (“How your grandmother handled exam stress”), helping
+          you build routines that feel personal and grounded. Insights are private, optional to share, and designed to
+          support—not replace—professional care.</p>
+        <a class="cta" href="SURVEY_LINK_HERE" target="_blank" rel="noopener">Take the Harmony Survey</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    Questions? <a href="mailto:info@generationalintelligence.com">info@generationalintelligence.com</a>
+  </footer>
+
+</body>
+</html>
