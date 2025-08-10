@@ -16,16 +16,31 @@
       --muted:#f3f4f6;
       --text:#374151;    /* gray-700 */
       --title:#0a1128;
+
+      /* 👇 Set the exact logo height here; header becomes (logo + 1cm) */
+      --logo-h: 120px;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
     img{max-width:100%;display:block}
 
-    /* Header */
-    header{background:var(--brand);padding:3.5rem 1rem;text-align:center}
-    header img{max-width:380px;width:80%;height:auto;margin:0 auto}
+    /* ===== Header (logo height + 1cm) ===== */
+    header{
+      background:var(--brand);
+      min-height:calc(var(--logo-h) + 1cm);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 1rem;          /* side padding only */
+      text-align:center;
+    }
+    header img{
+      height:var(--logo-h);    /* exact logo height */
+      width:auto;
+      max-width:90vw;          /* responsive on small screens */
+    }
 
-    /* Mission */
+    /* Intro / Mission */
     #mission{max-width:1100px;margin:0 auto;padding:2.5rem 1rem;text-align:center}
     #mission h1{font-size:2rem;line-height:1.2;margin:0 0 .75rem;font-weight:700;color:#111827}
     #mission p{font-size:1.06rem;margin:.5rem auto 0;max-width:820px}
@@ -46,6 +61,9 @@
     .copy{flex:1}
     .copy h2{color:var(--title);font-size:1.85rem;font-weight:700;margin:0 0 .6rem}
     .copy p{margin:0 0 1.1rem;font-weight:300}
+    .copy ul{margin-left:1rem;margin-top:.25rem}
+    .copy li{margin:.25rem 0}
+
     .cta{
       display:inline-block;background:var(--accent);color:#fff;text-decoration:none;
       padding:.9rem 1.6rem;border-radius:10px;font-weight:600;transition:transform .06s ease,background .15s ease;
@@ -65,52 +83,63 @@
     <img src="genai-logo.png" alt="Generational Intelligence logo">
   </header>
 
-  <!-- MISSION -->
+  <!-- GENERATIONAL INTELLIGENCE INTRO -->
   <section id="mission">
-    <h1>Our mission is to help every family capture, protect, and meaningfully use its lived wisdom.</h1>
+    <h1>Generational Intelligence</h1>
     <p>
-      Through <strong>Morb</strong> (the living family archive), <strong>MIA</strong> (a respectful AI companion),
-      and <strong>Harmony Well</strong> (personalised wellness), we connect past and present so that memories don’t
-      just sit in boxes—they show up when you need them: to spark conversations, guide decisions, and support mental health.
+      <strong>We turn family wisdom into everyday support.</strong><br>
+      Generational Intelligence is a simple suite that helps you capture what matters, stay organized, and look after your people.
+      With privacy and consent at the core, our three parts work together:
+      <strong>Morb</strong> preserves your family history, <strong>MIA</strong> makes daily life smoother,
+      and <strong>Harmony Well</strong> keeps health information organized and useful.
     </p>
     <p class="cta-note">Please take the surveys below and help us shape the future of family legacy.</p>
   </section>
 
   <main>
     <!-- MORB -->
-    <section class="section">
+    <section class="section" id="morb">
       <div class="logo-wrap"><img src="morb-logo.png" alt="Morb logo"></div>
       <div class="copy">
-        <h2>Morb — The Living Family Archive</h2>
-        <p>Morb brings photos, videos, family-tree details, and even DNA insights into one secure, searchable home.
-          It auto-tags faces and moments, lets you send time-capsule messages to the future, and makes it easy to share
-          memories privately with the people who matter. You stay in control—what’s saved, what’s shared, and what’s
-          deleted is always your choice.</p>
+        <h2>Morb — The Memory Orb (keeper of family history)</h2>
+        <p>
+          <strong>Your family’s story, safe and searchable.</strong><br>
+          Morb is a private home for photos, videos, recordings, documents, and family-tree details.
+          It organizes everything, tags who/what/when, and makes memories easy to find and share—now and decades from now.
+          You choose what’s saved, what’s shared, and what’s deleted.
+        </p>
         <a class="cta" href="SURVEY_LINK_HERE" target="_blank" rel="noopener">Take the Morb Survey</a>
       </div>
     </section>
 
     <!-- MIA -->
-    <section class="section strip reverse">
+    <section class="section strip reverse" id="mia">
       <div class="logo-wrap"><img src="mia-logo.png" alt="MIA logo"></div>
       <div class="copy">
-        <h2>MIA — Your AI Memory Companion</h2>
-        <p>MIA (Memory Intelligent Assistant) helps families talk—and remember. With your permission, it nudges
-          thoughtful questions (“Ask Dad about his first job”), transcribes spoken stories, and turns casual chats into
-          keepsakes you can find later. MIA stays respectful and optional: you decide when it listens and what gets saved.</p>
+        <h2>MIA — Your Personal Wellness &amp; Productivity Assistant</h2>
+        <p>
+          <strong>A calmer, more organized day—on your terms.</strong><br>
+          MIA plans your day, month, and year; sets reminders; books appointments; researches answers; keeps a private diary;
+          and offers gentle wellness check-ins. Her purpose is simple: help you have a better day than yesterday—by taking
+          small tasks off your mind and nudging the good habits you want.
+        </p>
         <a class="cta" href="SURVEY_LINK_HERE" target="_blank" rel="noopener">Take the MIA Survey</a>
       </div>
     </section>
 
     <!-- HARMONY WELL -->
-    <section class="section">
+    <section class="section" id="harmony">
       <div class="logo-wrap"><img src="harmony-logo.png" alt="Harmony Well logo"></div>
       <div class="copy">
-        <h2>Harmony Well — Wellness Rooted in Heritage</h2>
-        <p>Harmony Well blends evidence-based tools—CBT chat, guided meditations, sleep stories—with the strength of
-          your family narrative. It surfaces supportive reflections (“How your grandmother handled exam stress”), helping
-          you build routines that feel personal and grounded. Insights are private, optional to share, and designed to
-          support—not replace—professional care.</p>
+        <h2>Harmony Well — Family Medical Keeper</h2>
+        <p>
+          <strong>Clear, caring oversight for your family’s health.</strong><br>
+          Harmony Well tracks medical history, allergies, medications, nutrition and hydration, medication reminders, and appointments—plus secure storage
+          for records you can share with consent. It’s built to help families coordinate care and see progress over time.
+        </p>
+        <p style="font-size:.95rem;opacity:.85;">
+          <em>Harmony Well provides organizational support and reminders and is not a substitute for professional medical advice, diagnosis, or treatment.</em>
+        </p>
         <a class="cta" href="SURVEY_LINK_HERE" target="_blank" rel="noopener">Take the Harmony Survey</a>
       </div>
     </section>
