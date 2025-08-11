@@ -1,137 +1,154 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Generational Intelligence — Morb • MIA • Harmony Well</title>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Generational Intelligence: Morb (family archive), MIA (personal assistant), Harmony Well (family health companion)." />
+  <title>Generational Intelligence</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+
   <style>
     :root{
-      --navy:#0b2466;
-      --ink:#0f1420;
-      --muted:#5b6786;
-      --bg:#f7f9fc;
-      --card:#ffffff;
-      --accent:#2e6bff;
-      --accent-ink:#0f2a66;
-      --radius:18px;
-      --shadow:0 8px 24px rgba(11,36,102,.08);
+      --brand:#0a1128;   /* deep navy */
+      --accent:#2563eb;  /* blue-500 */
+      --bg:#ffffff;
+      --muted:#f3f4f6;
+      --text:#374151;    /* gray-700 */
+      --title:#0a1128;
+
+      /* 👇 Set the exact logo height here; header becomes (logo + 1cm) */
+      --logo-h: 120px;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
-    a{text-decoration:none;color:var(--accent)}
-    a:hover{opacity:.9}
-    .container{max-width:1100px;margin:0 auto;padding:0 20px}
-    /* Header stays the SAME height; logo scales 2× visually without changing layout height */
-    .site-header{background:var(--navy);height:72px;display:flex;align-items:center;overflow:visible}
-    .brand{display:flex;align-items:center;gap:12px}
-    #gi-logo{height:48px;width:auto;display:block;object-fit:contain;transform:scale(2);transform-origin:left center}
-    /* Page intro */
-    .hero{padding:28px 0 18px}
-    .hero h1{margin:18px 0 6px;font-size:26px}
-    .hero p{margin:0;color:var(--muted)}
-    /* Product cards */
-    .stack{display:grid;gap:18px;margin:18px 0 36px}
-    .product{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
-    .product h2{margin:0 0 8px;font-size:22px}
-    .product p{margin:0 0 12px;color:var(--ink)}
-    .meta{color:var(--muted);font-size:14px;margin-top:8px}
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;background:var(--accent);color:#fff;font-weight:600;box-shadow:0 6px 16px rgba(46,107,255,.18)}
-    .btn.secondary{background:#e9eeff;color:var(--accent-ink);box-shadow:none}
-    .btn[aria-disabled="true"]{opacity:.6;cursor:not-allowed}
-    /* Disable + blur for MIA & Harmony */
-    .is-disabled{position:relative;filter:blur(2px) grayscale(10%);opacity:.8}
-    .is-disabled a,.is-disabled button{pointer-events:none;cursor:not-allowed}
-    .is-disabled::after{
-      content:"Coming soon";
-      position:absolute;inset:0;display:grid;place-items:center;
-      color:#fff;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
-      background:rgba(11,36,102,.45);border-radius:var(--radius)
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+    img{max-width:100%;display:block}
+
+    /* ===== Header (logo height + 1cm) ===== */
+    header{
+      background:var(--brand);
+      min-height:calc(var(--logo-h) + 1cm);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 1rem;          /* side padding only */
+      text-align:center;
     }
+    header img{
+      height:var(--logo-h);    /* exact logo height */
+      width:auto;
+      max-width:90vw;          /* responsive on small screens */
+    }
+
+    /* Intro / Mission */
+    #mission{max-width:1100px;margin:0 auto;padding:2.5rem 1rem;text-align:center}
+    #mission h1{font-size:2rem;line-height:1.2;margin:0 0 .75rem;font-weight:700;color:#111827}
+    #mission p{font-size:1.06rem;margin:.5rem auto 0;max-width:820px}
+    #mission .cta-note{font-weight:600;margin-top:1rem}
+
+    /* Sections */
+    main{max-width:1100px;margin:0 auto;padding:1rem 1rem 3.5rem}
+    .section{display:flex;flex-direction:column;gap:1.25rem;margin:0 auto 2.75rem;padding:1.25rem;border-radius:14px}
+    .section.strip{background:var(--muted)}
+    @media (min-width: 860px){
+      .section{flex-direction:row;align-items:center;padding:1.75rem 2rem}
+      .section.reverse{flex-direction:row-reverse}
+    }
+
+    .logo-wrap{flex:0 0 320px;display:flex;align-items:center;justify-content:center;padding:.5rem}
+    .logo-wrap img{max-width:280px;width:100%;height:auto}
+
+    .copy{flex:1}
+    .copy h2{color:var(--title);font-size:1.85rem;font-weight:700;margin:0 0 .6rem}
+    .copy p{margin:0 0 1.1rem;font-weight:300}
+    .copy ul{margin-left:1rem;margin-top:.25rem}
+    .copy li{margin:.25rem 0}
+
+    .cta{
+      display:inline-block;background:var(--accent);color:#fff;text-decoration:none;
+      padding:.9rem 1.6rem;border-radius:10px;font-weight:600;transition:transform .06s ease,background .15s ease;
+    }
+    .cta:hover{background:#1d4ed8}
+    .cta:active{transform:translateY(1px)}
+
     /* Footer */
-    footer{padding:30px 0 40px;color:var(--muted)}
-    footer .foot-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
-    @media (min-width:880px){
-      .stack{grid-template-columns:1fr 1fr 1fr}
-      .hero h1{font-size:28px}
-    }
+    footer{background:var(--brand);color:#e5e7eb;text-align:center;padding:2rem 1rem}
+    footer a{color:#93c5fd;text-decoration:none}
   </style>
 </head>
 <body>
-  <!-- Header (navy height unchanged; logo appears 2× via transform) -->
-  <header class="site-header">
-    <div class="container brand">
-      <!-- Make sure this path matches your repo asset -->
-      <img id="gi-logo" src="assets/Long GenAI logo.png" alt="Generational Intelligence" />
-    </div>
+
+  <!-- HEADER -->
+  <header>
+    <img src="genai-logo.png" alt="Generational Intelligence logo">
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <h1>Generational Intelligence</h1>
-      <p>Capture, protect, and meaningfully use your family’s lived wisdom.</p>
+  <!-- GENERATIONAL INTELLIGENCE INTRO -->
+  <section id="mission">
+    <h1>Generational Intelligence</h1>
+    <p>
+      <strong>We turn family wisdom into everyday support.</strong><br>
+      Generational Intelligence is a simple suite that helps you capture what matters, stay organized, and look after your people.
+      With privacy and consent at the core, our three parts work together:
+      <strong>Morb</strong> preserves your family history, <strong>MIA</strong> makes daily life smoother,
+      and <strong>Harmony Well</strong> keeps health information organized and useful.
+    </p>
+    <p class="cta-note">Please take the surveys below and help us shape the future of family legacy.</p>
+  </section>
+
+  <main>
+    <!-- MORB -->
+    <section class="section" id="morb">
+      <div class="logo-wrap"><img src="morb-logo.png" alt="Morb logo"></div>
+      <div class="copy">
+        <h2>Morb — The Memory Orb (keeper of family history)</h2>
+        <p>
+          <strong>Your family’s story, safe and searchable.</strong><br>
+          Morb is a private home for photos, videos, recordings, documents, and family-tree details.
+          It organizes everything, tags who/what/when, and makes memories easy to find and share—now and decades from now.
+          You choose what’s saved, what’s shared, and what’s deleted.
+        </p>
+        <a class="cta" href="SURVEY_LINK_HERE" target="_blank" rel="noopener">Take the Morb Survey</a>
+      </div>
     </section>
 
-    <section class="stack">
-
-      <!-- MORB (ACTIVE) -->
-      <article id="morb" class="product">
-        <h2>Morb — The Living Family Archive</h2>
-        <p>Morb is your private, searchable home for photos, videos, voice notes, and documents. It brings scattered memories together, adds smart tagging and search, and lets you share only with the people you choose. Think of it as a calm, long-term home for your family’s story.</p>
-        <div class="meta">Survey: ~7 minutes • Anonymous • Helps us decide what to build first</div>
-        <div class="cta-row">
-          <!-- TODO: replace # with your real Google Form link -->
-          <a class="btn" href="#" target="_blank" rel="noopener">Take the Morb Survey</a>
-          <a class="btn secondary" href="#more-morb">Learn more</a>
-        </div>
-      </article>
-
-      <!-- MIA (DISABLED/BLURRED) -->
-      <article id="mia" class="product is-disabled">
-        <h2>MIA — Your Personal Assistant</h2>
-        <p>MIA lightens the mental load: planning your day, setting the right reminders, booking appointments, researching quick answers, and keeping a gentle private diary if you want it. The aim is simple—help you have a better day than yesterday.</p>
-        <div class="meta">Survey opening soon</div>
-        <div class="cta-row">
-          <!-- Keep the button, but disabled by CSS -->
-          <a class="btn" href="#" aria-disabled="true">Take the MIA Survey</a>
-          <a class="btn secondary" href="#more-mia" aria-disabled="true">Learn more</a>
-        </div>
-      </article>
-
-      <!-- HARMONY (DISABLED/BLURRED) -->
-      <article id="harmony" class="product is-disabled">
-        <h2>Harmony Well — Family Health Companion</h2>
-        <p>Harmony Well helps families stay on top of the practical side of health—medication reminders, refills, appointments, simple tracking, and proactive nudges for common preventive checks—always with your privacy in mind.</p>
-        <div class="meta">Survey opening soon</div>
-        <div class="cta-row">
-          <!-- Keep the button, but disabled by CSS -->
-          <a class="btn" href="#" aria-disabled="true">Take the Harmony Survey</a>
-          <a class="btn secondary" href="#more-harmony" aria-disabled="true">Learn more</a>
-        </div>
-      </article>
-
+    <!-- MIA -->
+    <section class="section strip reverse" id="mia">
+      <div class="logo-wrap"><img src="mia-logo.png" alt="MIA logo"></div>
+      <div class="copy">
+        <h2>MIA — Your Personal Wellness &amp; Productivity Assistant</h2>
+        <p>
+          <strong>A calmer, more organized day—on your terms.</strong><br>
+          MIA plans your day, month, and year; sets reminders; books appointments; researches answers; keeps a private diary;
+          and offers gentle wellness check-ins. Her purpose is simple: help you have a better day than yesterday—by taking
+          small tasks off your mind and nudging the good habits you want.
+        </p>
+        <a class="cta" href="SURVEY_LINK_HERE" target="_blank" rel="noopener">Take the MIA Survey</a>
+      </div>
     </section>
 
-    <!-- Optional “more info” anchors -->
-    <section id="more-morb" class="product" style="margin-bottom:26px">
-      <h2>Why Morb?</h2>
-      <p>Most families have memories spread across phones, chats, and old drives. Morb brings it together in a private vault with powerful search, easy sharing, and long-term peace of mind.</p>
+    <!-- HARMONY WELL -->
+    <section class="section" id="harmony">
+      <div class="logo-wrap"><img src="harmony-logo.png" alt="Harmony Well logo"></div>
+      <div class="copy">
+        <h2>Harmony Well — Family Medical Keeper</h2>
+        <p>
+          <strong>Clear, caring oversight for your family’s health.</strong><br>
+          Harmony Well tracks medical history, allergies, medications, nutrition and hydration, medication reminders, and appointments—plus secure storage
+          for records you can share with consent. It’s built to help families coordinate care and see progress over time.
+        </p>
+        <p style="font-size:.95rem;opacity:.85;">
+          <em>Harmony Well provides organizational support and reminders and is not a substitute for professional medical advice, diagnosis, or treatment.</em>
+        </p>
+        <a class="cta" href="SURVEY_LINK_HERE" target="_blank" rel="noopener">Take the Harmony Survey</a>
+      </div>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer>
-    <div class="container foot-card">
-      <p><strong>Questions?</strong> Email us at
-        <a href="mailto:rtdsourcing.darren@gmail.com">rtdsourcing.darren@gmail.com</a>.
-      </p>
-      <p class="meta">© <span id="y"></span> Generational Intelligence</p>
-    </div>
+    Questions? <a href="mailto:info@generationalintelligence.com">info@generationalintelligence.com</a>
   </footer>
 
-  <script>
-    // Year stamp
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
