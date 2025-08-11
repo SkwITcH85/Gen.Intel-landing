@@ -25,19 +25,24 @@
     img{max-width:100%;display:block}
 
     /* ===== Header (logo height + 1cm) ===== */
-    header{
-      background:var(--brand);
-      min-height:calc(var(--logo-h) + 1cm);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:0 1rem;          /* side padding only */
-      text-align:center;
-    }
-    header img{
-      height:var(--logo-h);    /* exact logo height */
-      width:auto;
-      max-width:90vw;          /* responsive on small screens */
+  header {
+    background: var(--brand);
+    min-height: calc(var(--logo-h) + 1cm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    text-align: center;
+    position: relative;
+  }
+  header img {
+    height: calc(var(--logo-h) * 1.6); /* Increase logo size by 60% */
+    width: auto;
+    max-width: 90vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center horizontally & vertically */
     }
 
     /* Intro / Mission */
